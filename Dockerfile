@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Configure timezone and locale to spanish and America/Bogota timezone. Change locale and timezone to whatever you want
 ENV LANG="en_US.UTF-8"
 ENV LANGUAGE=en_US
+RUN apt-get clean && apt-get update && apt-get install -y locales
 RUN locale-gen en_US.UTF-8 && locale-gen en_US
 RUN echo "America/Bogota" > /etc/timezone && \
     apt-get install -y locales && \
@@ -26,7 +27,7 @@ RUN apt-get update -y && \
 
 # download tor, firefox, libreoffice and git
 RUN add-apt-repository ppa:webupd8team/tor-browser
-RUN apt-get update -y && apt-get install -y tor firefox libreoffice htop nano git vim tor-browser
+RUN apt-get update -y && apt-get install -y tor firefox htop nano git vim tor-browser
 
 # Install nomachine, change password and username to whatever you want here
 RUN curl -fSL "http://download.nomachine.com/download/5.2/Linux/${NOMACHINE_PACKAGE_NAME}" -o nomachine.deb \
