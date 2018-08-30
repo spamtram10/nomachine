@@ -7,7 +7,7 @@ ENV LANG="en_US.UTF-8"
 ENV LANGUAGE=en_US
 RUN apt-get clean && apt-get update && apt-get install -y locales
 RUN locale-gen en_US.UTF-8 && locale-gen en_US
-RUN echo "America/Bogota" > /etc/timezone && \
+RUN echo "America/New_York" > /etc/timezone && \
     apt-get install -y locales && \
     sed -i -e "s/# $LANG.*/$LANG.UTF-8 UTF-8/" /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
@@ -15,7 +15,7 @@ RUN echo "America/Bogota" > /etc/timezone && \
 
 RUN apt-get update -y && apt-get install -y software-properties-common python-software-properties python3-software-properties sudo
 RUN add-apt-repository universe
-RUN apt-get update -y && apt-get install -y vim xterm pulseaudio cups curl libgconf2-4 iputils-ping libnss3-1d libxss1 wget xdg-utils libpango1.0-0 fonts-liberation
+RUN apt-get update -y && apt-get install -y xterm pulseaudio cups curl libgconf2-4 iputils-ping libnss3-1d libxss1 wget xdg-utils libpango1.0-0 fonts-liberation
 
 # Goto https://www.nomachine.com/download/download&id=10 and change for the latest NOMACHINE_PACKAGE_NAME and MD5 shown in that link to get the latest version.
 ENV NOMACHINE_PACKAGE_NAME nomachine_6.2.4_1_amd64.deb
@@ -24,11 +24,7 @@ ENV NOMACHINE_MD5 210bc249ec9940721a1413392eee06fe
 
 # Install the mate-desktop-enviroment version you would like to have
 RUN apt-get update -y && \
-    apt-get install -y mate-desktop-environment-extras
-
-# download tor, firefox, libreoffice and git
-RUN add-apt-repository ppa:webupd8team/tor-browser
-RUN apt-get update -y && apt-get install -y tor firefox htop nano git vim tor-browser
+    apt-get install -y mate-desktop-environment-extras firefox htop nano git vim
 
 # Install nomachine, change password and username to whatever you want here
 RUN curl -fSL "http://download.nomachine.com/download/${NOMACHINE_BUILD}/Linux/${NOMACHINE_PACKAGE_NAME}" -o nomachine.deb \
