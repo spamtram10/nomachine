@@ -1,8 +1,10 @@
 # docker-ubuntu-mate-desktop-nomachine
 Ubuntu Desktop 16.04 (MATE) Dockerfile with NoMachine remote access
 
-There are three tags:
+There are three tags available:
+
 latest - pure ubuntu with firefox and basic linux tools
+
 pycharm - latest+ pycharm IDE, to use pycharm, open command line:
 ```
 pycharm
