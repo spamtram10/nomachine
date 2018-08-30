@@ -3,13 +3,23 @@ Ubuntu Desktop 16.04 (MATE) Dockerfile with NoMachine remote access
 
 There are three tags available:
 
-latest - pure ubuntu with firefox and basic linux tools
+#### latest
+pure ubuntu with firefox and basic linux tools
 
-pycharm - latest+ pycharm IDE, to use pycharm, open command line:
+#### pycharm 
+latest+ pycharm IDE. To use pycharm, open command line:
 ```
 pycharm
 ```
-gpu - to run this, need to use nvidia-docker instead of docker. ML libaries(Tensorflow, pytorch, sklearn, ...) are installed.
+Or you can put it at desktop 
+```
+sudo ln /usr/bin/pycharm ~/Desktop/pycharm
+```
+
+#### gpu 
+
+To run this, need to use nvidia-docker instead of docker in usage. 
+A lot of ML libaries(Tensorflow, pytorch, sklearn, xgboot, jupyterlab, ...) are installed.
 
 
 # How to run
