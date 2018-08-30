@@ -7,4 +7,4 @@ groupadd -r $USER -g 433 \
 && echo $USER':'$PASSWORD | chpasswd
 /etc/NX/nxserver --startup
 
-jupyter notebook --port=8888 --allow-root --ip=0.0.0.0
+jupyter notebook --port=8888 --allow-root --ip=0.0.0.0 --notebook-dir="/workspace/notebook"
