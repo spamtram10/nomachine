@@ -1,5 +1,14 @@
 # docker-ubuntu-mate-desktop-nomachine
-Ubuntu Desktop 16.04 (MATE) Dockerfile with NoMachine remote access and firefox, libreoffice and tor-browser
+Ubuntu Desktop 16.04 (MATE) Dockerfile with NoMachine remote access
+
+There are three tags:
+latest - pure ubuntu with firefox and basic linux tools
+pycharm - latest+ pycharm IDE, to use pycharm, open command line:
+```
+pycharm
+```
+gpu - to run this, need to use nvidia-docker instead of docker. ML libaries(Tensorflow, pytorch, sklearn, ...) are installed.
+
 
 # How to run
 ## Build
