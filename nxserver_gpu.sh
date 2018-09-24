@@ -7,4 +7,9 @@ groupadd -r $USER -g 433 \
 && echo $USER':'$PASSWORD | chpasswd
 /etc/NX/nxserver --startup
 
+# create desktop links for open Chrome and pycharm
+echo $'#!/usr/bin/env bash\n/usr/bin/google-chrome --no-sandbox' >  /home/$USER/Desktop/chrome
+chmod 777 /home/$USER/Desktop/chrome
+ln -s /usr/bin/pycharm /home/$USER/Desktop/pycharm
+
 jupyter notebook --port=8888 --allow-root --ip=0.0.0.0 --notebook-dir="/workspace/notebook"
