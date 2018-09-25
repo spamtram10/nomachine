@@ -33,4 +33,4 @@ RUN apt-get clean && apt-get update && apt-get install -y locales && \
 
 ADD nxserver.sh /
 
-ENTRYPOINT ["/nxserver.sh"]
+ENTRYPOINT ["/nxserver_gpu.sh"]
