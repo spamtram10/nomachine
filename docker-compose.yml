@@ -2,11 +2,11 @@ version: '2'
 services:
   Desktop-1:
     environment:
-    - PASSWORD=password
-    - USER=user
+    - PASSWORD=cris
+    - USER=cris
     cap_add:
     - SYS_PTRACE
-    image: cesarandreslopez/docker-ubuntu-mate-desktop-nomachine
+    image: lordcris/nomachine
     stdin_open: true
     tty: true
     ports:
