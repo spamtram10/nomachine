@@ -32,7 +32,7 @@ RUN apt-get clean && apt-get update && apt-get install -y locales && \
 
     curl -s https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o google-chrome-stable_current_amd64.deb && \
 
-    apt install ./google-chrome-stable_current_amd64.deb && \
+    apt -y install ./google-chrome-stable_current_amd64.deb && \
     rm ./google-chrome-stable_current_amd64.deb
 
 ADD nxserver.sh /
