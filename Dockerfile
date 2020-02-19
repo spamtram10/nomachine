@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -7,9 +7,9 @@ ENV LANG="en_US.UTF-8"
 ENV LANGUAGE=en_US
 
 # Goto https://www.nomachine.com/download/download&id=10 and change for the latest NOMACHINE_PACKAGE_NAME and MD5 shown in that link to get the latest version.
-ENV NOMACHINE_PACKAGE_NAME nomachine_6.2.4_1_amd64.deb
-ENV NOMACHINE_BUILD 6.2
-ENV NOMACHINE_MD5 210bc249ec9940721a1413392eee06fe
+ENV NOMACHINE_PACKAGE_NAME nomachine_6.9.2_1_amd64.deb
+ENV NOMACHINE_BUILD 6.9
+ENV NOMACHINE_MD5 86fe9a0f9ee06ee6fce41aa36674f727
 
 RUN apt-get clean && apt-get update && apt-get install -y locales && \
     locale-gen en_US.UTF-8 && locale-gen en_US && \
@@ -28,7 +28,10 @@ RUN apt-get clean && apt-get update && apt-get install -y locales && \
     mate-desktop-environment-extras firefox htop nano git vim && \
     
     curl -fSL "http://download.nomachine.com/download/${NOMACHINE_BUILD}/Linux/${NOMACHINE_PACKAGE_NAME}" -o nomachine.deb \
-&& echo "${NOMACHINE_MD5} *nomachine.deb" | md5sum -c - && dpkg -i nomachine.deb && sed -i "s|#EnableClipboard both|EnableClipboard both |g" /usr/NX/etc/server.cfg
+&& echo "${NOMACHINE_MD5} *nomachine.deb" | md5sum -c - && dpkg -i nomachine.deb && sed -i "s|#EnableClipboard both|EnableClipboard both |g" /usr/NX/etc/server.cfg \
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    apt -y install ./google-chrome-stable_current_amd64.deb \
+    rm ./google-chrome-stable_current_amd64.deb
 
 ADD nxserver.sh /
 
