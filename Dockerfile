@@ -19,7 +19,7 @@ RUN apt-get clean && apt-get update && apt-get install -y locales && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=$LANG && \
     apt-get update -y && \
-    apt-get install -y software-properties-common python-software-properties python3-software-properties sudo && \
+    apt-get install -y software-properties-common python-pycurl python-apt python3-software-properties sudo && \
     add-apt-repository universe && \
     apt-get update -y && \
     
