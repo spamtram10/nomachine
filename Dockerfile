@@ -24,7 +24,7 @@ RUN apt-get clean && apt-get update && apt-get install -y locales && \
     apt-get update -y && \
     
     apt-get install -y xterm pulseaudio cups curl \
-    libgconf2-4 iputils-ping libnss3-1d libxss1 wget xdg-utils libpango1.0-0 fonts-liberation \
+    libgconf2-4 iputils-ping libnss3 libxss1 wget xdg-utils libpango1.0-0 fonts-liberation \
     mate-desktop-environment-extras firefox htop nano git vim && \
     
     curl -fSL "http://download.nomachine.com/download/${NOMACHINE_BUILD}/Linux/${NOMACHINE_PACKAGE_NAME}" -o nomachine.deb \
