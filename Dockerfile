@@ -13,7 +13,7 @@ ENV NOMACHINE_MD5 86fe9a0f9ee06ee6fce41aa36674f727
 
 RUN apt-get clean && apt-get update && apt-get install -y locales && \
     locale-gen en_US.UTF-8 && locale-gen en_US && \
-    echo "America/New_York" > /etc/timezone && \
+    echo "Europe/Sofia" > /etc/timezone && \
     apt-get install -y locales && \
     sed -i -e "s/# $LANG.*/$LANG.UTF-8 UTF-8/" /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
@@ -23,13 +23,13 @@ RUN apt-get clean && apt-get update && apt-get install -y locales && \
     add-apt-repository universe && \
     apt-get update -y && \
     
-    apt-get install -y xterm pulseaudio cups curl \
+    apt-get install -y xterm pulseaudio curl \
     libgconf2-4 iputils-ping libnss3 libxss1 wget xdg-utils libpango1.0-0 fonts-liberation \
     mate-desktop-environment-extras firefox htop nano git vim && \
     
     curl -fSL "http://download.nomachine.com/download/${NOMACHINE_BUILD}/Linux/${NOMACHINE_PACKAGE_NAME}" -o nomachine.deb \
 && echo "${NOMACHINE_MD5} *nomachine.deb" | md5sum -c - && dpkg -i nomachine.deb && sed -i "s|#EnableClipboard both|EnableClipboard both |g" /usr/NX/etc/server.cfg \
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    curl -s https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o google-chrome-stable_current_amd64.deb \
     apt install ./google-chrome-stable_current_amd64.deb \
     rm ./google-chrome-stable_current_amd64.deb
 
