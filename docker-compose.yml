@@ -1,13 +1,13 @@
 version: '2'
 services:
-  Desktop-1:
+  Desktop-1-mega:
     environment:
     - PASSWORD=cris
     - USER=cris
     cap_add:
     - SYS_PTRACE
     shm_size: 1g
-    image: lordcris/nomachine
+    image: lordcris/nomachine:mega
     stdin_open: true
     tty: true
     ports:

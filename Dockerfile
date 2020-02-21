@@ -22,6 +22,12 @@ RUN curl -s https://dl.google.com/linux/direct/google-chrome-stable_current_amd6
     apt -y install ./google-chrome-stable_current_amd64.deb && \
     rm ./google-chrome-stable_current_amd64.deb
 
+RUN curl -s https://linux.dropbox.com/packages/ubuntu/dropbox_2019.02.14_amd64.deb -o dropbox_2019.02.14_amd64.deb && \
+apt -y install ./dropbox_2019.02.14_amd64.deb && rm ./dropbox_2019.02.14_amd64.deb
+
+RUN curl -s https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megacmd-xUbuntu_18.04_amd64.deb -o megacmd-xUbuntu_18.04_amd64.deb && \
+apt -y install ./megacmd-xUbuntu_18.04_amd64.deb && rm ./megacmd-xUbuntu_18.04_amd64.deb
+
 RUN apt-get clean
 RUN apt-get autoclean
 
