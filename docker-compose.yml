@@ -6,6 +6,7 @@ services:
     - USER=cris
     cap_add:
     - SYS_PTRACE
+    shm-size: 1g
     image: lordcris/nomachine
     stdin_open: true
     tty: true
