@@ -1,38 +1,27 @@
 # docker-ubuntu-mate-desktop-nomachine 6.2
-Ubuntu Desktop 16.04 (MATE) Dockerfile with NoMachine 6.2 remote access
+Ubuntu Desktop 18.04 (MATE) Dockerfile with NoMachine 6.9 remote access
 
 There are three tags available:
 
 #### latest
-pure ubuntu with firefox and basic linux tools
+pure ubuntu with firefox, chrome and chromium-browser and basic linux tools
 
-#### pycharm 
-latest+ pycharm IDE. To use pycharm, open command line:
-```
-pycharm
-```
-Or you can put it at desktop 
-```
-sudo ln /usr/bin/pycharm ~/Desktop/pycharm
-```
+#### mega
+with mega.nz cmd and dropbox 
 
-#### gpu 
-
-To run this, need to use nvidia-docker instead of docker in usage. 
-A lot of ML libaries(Tensorflow, pytorch, sklearn, xgboot, jupyterlab, ...) are installed.
 
 
 # How to run
 ## Build
 
 ```
-git clone https://github.com/rewreu/nomachine.git
-cd docker-ubuntu-mate-desktop-nomachine
-docker build -t=rewreu/nomachine .
+git clone https://github.com/lordcris/nomachine.git
+cd nomachine
+docker build -t=lordcris/nomachine .
 ```
 ## Docker pull command
 ```
-docker pull rewreu/nomachine
+docker pull lordcris/nomachine
 ```
 
 ## Enviroment vaiables
@@ -42,8 +31,7 @@ PASSWORD -> password for the nomachine login
 ## Usage
 
 ```
-docker run -d -p 4000:4000 --name desktop -e PASSWORD=password \
--e USER=user --cap-add=SYS_PTRACE rewreu/nomachine
+docker run -d -p 4000:4000 --name nomachine -e PASSWORD=password -e USER=user --cap-add=SYS_PTRACE --shm-size=1g lordcris/nomachine
 ```
 
 ## Connect to the container
@@ -57,7 +45,7 @@ To avoid it, you can use the following in Ubuntu:
 ```
 docker run -d -p 4000:4000 --name desktop \
 -e PASSWORD=password -v /etc/localtime:/etc/localtime:ro \
--e USER=user --cap-add=SYS_PTRACE rewreu/nomachine
+-e USER=user --cap-add=SYS_PTRACE --shm-size=1g lordcris/nomachine
 ```
 
- For macbook, I couldn't figure out how to sovle the timezone issue. The path /etc/localtime in mac is a symbolic link. 
+
