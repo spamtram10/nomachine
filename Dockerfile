@@ -28,6 +28,12 @@ apt -y install ./dropbox_2019.02.14_amd64.deb && rm ./dropbox_2019.02.14_amd64.d
 RUN curl -s https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megacmd-xUbuntu_18.04_amd64.deb -o megacmd-xUbuntu_18.04_amd64.deb && \
 apt -y install ./megacmd-xUbuntu_18.04_amd64.deb && rm ./megacmd-xUbuntu_18.04_amd64.deb
 
+RUN curl -s https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync-xUbuntu_18.04_amd64.deb -o megasync-xUbuntu_18.04_amd64.deb && \
+apt -y install ./megasync-xUbuntu_18.04_amd64.deb && rm ./megasync-xUbuntu_18.04_amd64.deb
+
+RUN curl -s https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/nemo-megasync-xUbuntu_18.04_amd64.deb -o nemo-megasync-xUbuntu_18.04_amd64.deb && \
+apt -y install ./nemo-megasync-xUbuntu_18.04_amd64.deb && rm ./nemo-megasync-xUbuntu_18.04_amd64.deb
+
 RUN apt-get clean
 RUN apt-get autoclean
 
