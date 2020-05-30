@@ -13,7 +13,7 @@ RUN apt-get autoclean
 
 EXPOSE 4000
 
-VOLUME [ "/home/nomachine" ]
+#VOLUME [ "/home/nomachine" ]
 
 
 ENTRYPOINT ["/nxserver.sh"]
