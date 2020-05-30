@@ -1,5 +1,5 @@
-# docker-ubuntu-mate-desktop-nomachine 6.2
-Ubuntu Desktop 18.04 (MATE) Dockerfile with NoMachine 6.9 remote access
+# docker-ubuntu-mate-desktop-nomachine 6.10
+Ubuntu Desktop 20.04 (MATE) Dockerfile with NoMachine 6.10 remote access
 
 There are three tags available:
 
