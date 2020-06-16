@@ -2,7 +2,7 @@ version: '2'
 services:
   Desktop-1:
     environment:
-    - PASSWORD=greenfield92
+    - PASSWORD=passwordpass123
     - USER=jay
     cap_add:
     - SYS_PTRACE
