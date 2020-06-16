@@ -19,17 +19,17 @@ RUN curl -fSL "http://download.nomachine.com/download/${NOMACHINE_BUILD}/Linux/$
 && echo "${NOMACHINE_MD5} *nomachine.deb" | md5sum -c - && dpkg -i nomachine.deb && sed -i "s|#EnableClipboard both|EnableClipboard both |g" /usr/NX/etc/server.cfg
 
 # Set the Chrome repo.
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+# RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+#     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
 
 # Install Chrome.
-RUN apt-get update && apt-get -y install google-chrome-stable
+# RUN apt-get update && apt-get -y install google-chrome-stable
 
-RUN curl -s https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb -o dropbox_amd64.deb && \
-apt -y install ./dropbox_amd64.deb && rm ./dropbox_amd64.deb
+# RUN curl -s https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb -o dropbox_amd64.deb && \
+# apt -y install ./dropbox_amd64.deb && rm ./dropbox_amd64.deb
 
-RUN curl -s https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync-xUbuntu_18.04_amd64.deb -o megacmd-xUbuntu_amd64.deb && \
-apt -y install ./megacmd-xUbuntu_amd64.deb && rm ./megacmd-xUbuntu_amd64.deb
+# RUN curl -s https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync-xUbuntu_18.04_amd64.deb -o megacmd-xUbuntu_amd64.deb && \
+# apt -y install ./megacmd-xUbuntu_amd64.deb && rm ./megacmd-xUbuntu_amd64.deb
 
 RUN apt-get clean
 RUN apt-get autoclean
