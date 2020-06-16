@@ -15,13 +15,13 @@ with mega.nz cmd and dropbox
 ## Build
 
 ```
-git clone https://github.com/lordcris/nomachine.git
+git clone https://github.com/spamtram10/nomachine.git
 cd nomachine
-docker build -t=lordcris/nomachine .
+docker build -t=spamtram10/nomachine .
 ```
 ## Docker pull command
 ```
-docker pull lordcris/nomachine
+docker pull spamtram10/nomachine
 ```
 
 ## Enviroment vaiables
