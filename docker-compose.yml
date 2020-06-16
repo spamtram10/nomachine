@@ -2,12 +2,12 @@ version: '2'
 services:
   Desktop-1:
     environment:
-    - PASSWORD=cris
-    - USER=cris
+    - PASSWORD=greenfield92
+    - USER=jay
     cap_add:
     - SYS_PTRACE
     shm_size: 1g
-    image: lordcris/nomachine
+    image: spamtram10/nomachine
     stdin_open: true
     tty: true
     ports:
