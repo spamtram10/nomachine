@@ -3,9 +3,9 @@ FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-ENV NOMACHINE_PACKAGE_NAME nomachine_6.10.12_1_amd64.deb
-ENV NOMACHINE_BUILD 6.10
-ENV NOMACHINE_MD5 930ed68876b69a5a20f3f2b2c0650abc
+ENV NOMACHINE_PACKAGE_NAME nomachine_6.11.2_1_amd64.deb
+ENV NOMACHINE_BUILD 6.11
+ENV NOMACHINE_MD5 d268d38823489c9b3cffd5d618c05b22
 
 # Helpers
 RUN apt-get update && apt-get install -y apt-utils vim xterm pulseaudio cups 
@@ -16,7 +16,7 @@ RUN apt-get install -y mate-desktop-environment-core mate-desktop-environment ma
 RUN apt-get install -y wget curl
 
 RUN curl -fSL "http://download.nomachine.com/download/${NOMACHINE_BUILD}/Linux/${NOMACHINE_PACKAGE_NAME}" -o nomachine.deb \
-&& dpkg -i nomachine.deb && sed -i "s|#EnableClipboard both|EnableClipboard both |g" /usr/NX/etc/server.cfg
+&& echo "${NOMACHINE_MD5} *nomachine.deb" | md5sum -c - && dpkg -i nomachine.deb && sed -i "s|#EnableClipboard both|EnableClipboard both |g" /usr/NX/etc/server.cfg
 
 # Set the Chrome repo.
 # RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
