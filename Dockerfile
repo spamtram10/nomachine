@@ -11,7 +11,7 @@ ENV NOMACHINE_MD5 d268d38823489c9b3cffd5d618c05b22
 RUN apt-get update && apt-get install -y apt-utils vim xterm pulseaudio cups 
 
 RUN apt-get -y dist-upgrade 
-RUN apt-get install -y mate-desktop-environment-core mate-desktop-environment mate-indicator-applet ubuntu-mate-themes ubuntu-mate-wallpapers firefox nano sudo
+RUN apt-get install -y gnome-session gdm3 ubuntu-desktop firefox nano sudo
 
 RUN apt-get install -y wget curl
 
